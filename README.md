@@ -1,2 +1,2 @@
 # CasusBM-04
-Yeet
+Online repository voor het werken aan het proof of concept van de casus.
