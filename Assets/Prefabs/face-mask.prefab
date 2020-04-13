@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6439478402167260101}
   m_Layer: 0
   m_Name: face-mask
-  m_TagString: Untagged
+  m_TagString: Mask
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,4 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d79952c10c3e7447ae1f763c79537da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  column: 0
+  row: 0
+  targetX: 0
+  targetY: 0
+  isMatched: 0
   swipeAngle: 0

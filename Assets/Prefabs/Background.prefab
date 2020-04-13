@@ -94,10 +94,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e109ca4d83546584ca1b80141667be6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icons:
-  - {fileID: 1728592664997190218, guid: bc973de56df0c2c4c8b4e91f24b30d80, type: 3}
-  - {fileID: 3703945209649120728, guid: b197509b5b63a894f9490ae37a0820fd, type: 3}
-  - {fileID: 8861060404431833456, guid: 065a53eb3fcc6c343a3f8a4af3109daa, type: 3}
-  - {fileID: 1779906467893613888, guid: 4afd116f1d1d31a488319abdb441bde8, type: 3}
-  - {fileID: 3694907829298529757, guid: f64d3a6bc1e329f4889077f73d5f2b78, type: 3}
-  - {fileID: 3228303950724357163, guid: 8c9f9ecab4d796a4aa21c03fbc53ddfb, type: 3}
