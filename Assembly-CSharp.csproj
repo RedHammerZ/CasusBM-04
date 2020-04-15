@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BackgroundTile.cs" />
     <Compile Include="Assets\Scripts\Board.cs" />
+    <Compile Include="Assets\Scripts\FindMatches.cs" />
     <Compile Include="Assets\Scripts\Icon.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/RedHammerZ/source/repos/CasusBM-04/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
