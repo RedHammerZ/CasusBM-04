@@ -6,12 +6,14 @@ using System.Linq;
 public class FindMatches : MonoBehaviour
 {
     private Board board;
+    private QuestionPop questionPop;
     public List<GameObject> currentMatches = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
         board = FindObjectOfType<Board>();
+        questionPop = FindObjectOfType<QuestionPop>();
     }
 
     public void FindallMatches()
@@ -39,21 +41,28 @@ public class FindMatches : MonoBehaviour
                             {
                                 if (currentIcon.GetComponent<Icon>().isRowBomb || leftIcon.GetComponent<Icon>().isRowBomb || rightIcon.GetComponent<Icon>().isRowBomb)
                                 {
+                                    StartCoroutine(WaitCo());
                                     currentMatches.Union(GetRowPieces(j));
                                 }
 
                                 if (currentIcon.GetComponent<Icon>().isColumnBomb)
                                 {
+                                    StartCoroutine(WaitCo());
+
                                     currentMatches.Union(GetColumnPieces(i));
                                 }
 
                                 if (leftIcon.GetComponent<Icon>().isColumnBomb)
                                 {
+                                    StartCoroutine(WaitCo());
+
                                     currentMatches.Union(GetColumnPieces(i - 1));
                                 }
 
                                 if (rightIcon.GetComponent<Icon>().isColumnBomb)
                                 {
+                                    StartCoroutine(WaitCo());
+
                                     currentMatches.Union(GetColumnPieces(i + 1));
                                 }
                                 if (!currentMatches.Contains(leftIcon))
@@ -84,21 +93,29 @@ public class FindMatches : MonoBehaviour
                             {
                                 if (currentIcon.GetComponent<Icon>().isColumnBomb || upIcon.GetComponent<Icon>().isColumnBomb || downIcon.GetComponent<Icon>().isColumnBomb)
                                 {
+                                    StartCoroutine(WaitCo());
+
                                     currentMatches.Union(GetColumnPieces(i));
                                 }
 
                                 if (currentIcon.GetComponent<Icon>().isRowBomb)
                                 {
+                                    StartCoroutine(WaitCo());
+
                                     currentMatches.Union(GetRowPieces(j));
                                 }
 
                                 if (upIcon.GetComponent<Icon>().isRowBomb)
                                 {
+                                    StartCoroutine(WaitCo());
+
                                     currentMatches.Union(GetRowPieces(j + 1));
                                 }
 
                                 if (downIcon.GetComponent<Icon>().isRowBomb)
                                 {
+                                    StartCoroutine(WaitCo());
+
                                     currentMatches.Union(GetRowPieces(j - 1));
                                 }
                                 if (!currentMatches.Contains(upIcon))
@@ -124,6 +141,15 @@ public class FindMatches : MonoBehaviour
         }
     }
 
+    private IEnumerator WaitCo()
+    {
+        questionPop.isQuestioned = true;
+        questionPop.isResume = 0;
+        yield return new WaitUntil(() => questionPop.isResume > 0);
+    }
+
+
+
     List<GameObject> GetColumnPieces(int column)
     {
         List<GameObject> icons = new List<GameObject>();
@@ -142,6 +168,7 @@ public class FindMatches : MonoBehaviour
     List<GameObject> GetRowPieces(int row)
     {
         List<GameObject> icons = new List<GameObject>();
+        questionPop.isQuestioned = true;
         for (int i = 0; i < board.width; i++)
         {
             if (board.allIcons[i, row] != null)
